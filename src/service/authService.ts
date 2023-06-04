@@ -4,7 +4,7 @@ import { SigninAuthDetails, SignupAuthDetails } from "../model/AuthDetails";
 import axios from "axios";
 import jwtService from "./jwtService";
 
-const BASE_AUTH_URL = "http://localhost:8000/auth";
+const BASE_AUTH_URL = 'http://localhost:8080/auth';
 
 export default {
   async register(authDetails: SignupAuthDetails) {
@@ -12,7 +12,7 @@ export default {
     jwtService.storeJwt(res.data);
   },
   async login(authDetails: SigninAuthDetails) {
-    const res = await axios.post(BASE_AUTH_URL + "/register", authDetails);
+    const res = await axios.post(BASE_AUTH_URL + "/login", authDetails);
     jwtService.storeJwt(res.data);
   },
 };
